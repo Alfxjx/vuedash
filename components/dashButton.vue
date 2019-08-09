@@ -17,7 +17,7 @@ export default {
   name: "dashButton",
   props: {
     content: {
-      type: [String,Number],
+      type: [String, Number],
       default: "按钮"
     }
   },
