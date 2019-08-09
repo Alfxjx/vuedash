@@ -5,7 +5,7 @@ a vuejs mobile-first ui framework
 
 ## QuickStart
 
-[Documents/文档](to do)
+[Documents/文档](https://alfxjx.github.io/vuedash/#/)
 
 ### How to use *Vuedash* in a Vue project
 
