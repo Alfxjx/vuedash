@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <dash-button></dash-button>
+    <dash-button :content="text"></dash-button>
     <router-view />
   </div>
 </template>
@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      text: "123"
+      text: 1111
     };
   }
 };

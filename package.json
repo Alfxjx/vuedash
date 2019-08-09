@@ -5,7 +5,7 @@
   "main": "./dist/vuedash.common.js",
   "files": [
     "dist/*",
-    "src/*", 
+    "src/*",
     "public/*",
     "*.json",
     "*.js"

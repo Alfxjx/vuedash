@@ -4,9 +4,11 @@
     @click="handleBtnClick"
     @mousedown="mouseDown"
     @mouseup="mouseUp"
+    @touchstart="mouseDown"
+    @touchend="mouseUp"
     :class="{'mouse-down':isMouseDown}"
   >
-    <span>{{text}}</span>
+    <span>{{content}}</span>
   </div>
 </template>
 
@@ -14,8 +16,8 @@
 export default {
   name: "dashButton",
   props: {
-    text: {
-      type: String,
+    content: {
+      type: [String,Number],
       default: "按钮"
     }
   },
@@ -57,7 +59,7 @@ export default {
   border: 1px solid green;
   border-radius: 6px;
   transition: all 0.1s;
-  &.mouse-down{
+  &.mouse-down {
     background: green;
     color: #fff;
   }
