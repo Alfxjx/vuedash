@@ -5,8 +5,8 @@ import Vuedash from '../components/index.js'
 
 Vue.config.productionTip = false
 
+Vue.use(Vuedash);
 new Vue({
-  Vuedash,
   router,
   render: h => h(App)
 }).$mount('#app')

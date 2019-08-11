@@ -8,4 +8,8 @@ Object.keys(Vuedash).forEach(name => {
   Vue.component(name, Vuedash[name])
 })
 
+export {
+  dashButton
+}
+
 export default Vuedash

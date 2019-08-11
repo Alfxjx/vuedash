@@ -6,9 +6,17 @@
     @mouseup="mouseUp"
     @touchstart="mouseDown"
     @touchend="mouseUp"
-    :class="{'mouse-down':isMouseDown}"
+    :style="{borderRadius:computedRadius}"
+    :class="[
+    buttonType,
+    buttonSize,
+    {
+      'mouse-down':isMouseDown,
+      'disabled': disabled
+    }]"
   >
-    <span>{{content}}</span>
+    <slot v-if="$slots.default"></slot>
+    <span v-else>{{content}}</span>
   </div>
 </template>
 
@@ -18,7 +26,24 @@ export default {
   props: {
     content: {
       type: [String, Number],
-      default: "按钮"
+      default: "Button"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      // large mid small
+      default: "mid"
+    },
+    type: {
+      type: String,
+      default: "primary"
+    },
+    radius:{
+      type:String,
+      default:'8px'
     }
   },
   data() {
@@ -28,10 +53,23 @@ export default {
   },
   created() {},
   mounted() {},
-  computed: {},
+  computed: {
+    buttonSize() {
+      return `btn-size-${this.size}`;
+    },
+    buttonType() {
+      return `btn-type-${this.type}`;
+    },
+    computedRadius() {
+      if(this.type==='round'){
+        return `50%`;
+      }
+      return this.radius;
+    }
+  },
   methods: {
-    handleBtnClick() {
-      console.log("clicked" + this.$options.name);
+    handleBtnClick(event) {
+      this.$emit("click", event);
     },
     mouseDown() {
       this.isMouseDown = true;
@@ -46,22 +84,57 @@ export default {
 </script>
 
 <style scoped lang="less">
+@import '../common/var.less';
+
 .dash-button {
-  max-width: 4em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1em;
-  font-weight: 500;
-  color: green;
-  background: #fff;
-  padding: 6px 12px;
-  border: 1px solid green;
-  border-radius: 6px;
+  max-width: 10em;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  color: @theme-color;
+  background: @bg-color;
   transition: all 0.1s;
   &.mouse-down {
-    background: green;
-    color: #fff;
+    background: @theme-color;
+    color: @bg-color;
+  }
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    position: relative;
+    opacity: 0.6;
+  }
+  // size
+  &.btn-size-large {
+    font-size: 1.25em;
+    padding: 6px 24px;
+   
+  }
+  &.btn-size-mid {
+    font-size: 1em;
+    padding: 6px 12px;
+    
+  }
+  &.btn-size-small {
+    font-size: 0.8em; 
+    padding: 4px 0;
+    
+  }
+  // type
+  &.btn-type-primary {
+    border: 1px solid @theme-color;
+    
+  }
+  // TODO
+  &.btn-type-text {
+    border: none; 
+  }
+  &.btn-type-round {
+    width: 1.5em;
+    padding: 6px;
+    border: 1px solid @theme-color;
+    border-radius: 50%;
+    overflow: hidden;
   }
 }
 </style>
