@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import dashButton from './dashButton.vue'
-const Vuedash = {
-  dashButton
-}
+import Vue from "vue";
+import Button from "./button/dashButton.vue";
+const Vuedash = [Button];
 
-Object.keys(Vuedash).forEach(name => {
-  Vue.component(name, Vuedash[name])
-})
+// Object.keys(Vuedash).forEach(name => {
+//   Vue.component(name, Vuedash[name])
+// })
 
-export {
-  dashButton
-}
+Vuedash.forEach(component => {
+  Vue.component(component.name, component);
+});
 
-export default Vuedash
+export { Button };
+
+export default Vuedash;

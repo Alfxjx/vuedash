@@ -41,9 +41,9 @@ export default {
       type: String,
       default: "primary"
     },
-    radius:{
-      type:String,
-      default:'8px'
+    radius: {
+      type: String,
+      default: "8px"
     }
   },
   data() {
@@ -61,7 +61,7 @@ export default {
       return `btn-type-${this.type}`;
     },
     computedRadius() {
-      if(this.type==='round'){
+      if (this.type === "round") {
         return `50%`;
       }
       return this.radius;
@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import '../common/var.less';
+@import "../../common/var.less";
 
 .dash-button {
   max-width: 10em;
@@ -108,26 +108,22 @@ export default {
   &.btn-size-large {
     font-size: 1.25em;
     padding: 6px 24px;
-   
   }
   &.btn-size-mid {
     font-size: 1em;
     padding: 6px 12px;
-    
   }
   &.btn-size-small {
-    font-size: 0.8em; 
+    font-size: 0.8em;
     padding: 4px 0;
-    
   }
   // type
   &.btn-type-primary {
     border: 1px solid @theme-color;
-    
   }
   // TODO
   &.btn-type-text {
-    border: none; 
+    border: none;
   }
   &.btn-type-round {
     width: 1.5em;
