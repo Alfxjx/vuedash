@@ -85,6 +85,7 @@ export default {
 
 <style scoped lang="less">
 @import "../../common/var.less";
+@import "../../common/common.less";
 
 .dash-button {
   max-width: 10em;
@@ -98,12 +99,12 @@ export default {
     background: @theme-color;
     color: @bg-color;
   }
-  &.disabled {
-    pointer-events: none;
-    cursor: not-allowed;
-    position: relative;
-    opacity: 0.6;
-  }
+  // &.disabled {
+  //   pointer-events: none;
+  //   cursor: not-allowed;
+  //   position: relative;
+  //   opacity: 0.6;
+  // }
   // size
   &.btn-size-large {
     font-size: 1.25em;

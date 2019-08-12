@@ -10,7 +10,7 @@
     <dash-button size="small"></dash-button>
     <span>type="primary"</span>
     <dash-button type="primary"></dash-button>
-    <span>type="text"</span>
+    <span>"disabled"</span>
     <dash-button disabled content="disabled"></dash-button>
     <span>type="round""</span>
     <dash-button type="round" content="ico"></dash-button>

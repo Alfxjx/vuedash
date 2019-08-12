@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Button from "./button/dashButton.vue";
-const Vuedash = [Button];
+import Collapse from './collapse/collapse.vue';
+import collapseItem from './collapse/collapse-item.vue';
+
+const Vuedash = [Button, Collapse, collapseItem];
 
 // Object.keys(Vuedash).forEach(name => {
 //   Vue.component(name, Vuedash[name])

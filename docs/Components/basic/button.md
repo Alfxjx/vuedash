@@ -27,7 +27,7 @@ export default {
 }
 ```
 
-## 按钮的API
+## API
 
 |Api|type|说明|
 |----|---|---|
