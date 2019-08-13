@@ -6,6 +6,8 @@
 
 - Components/组件
   - [Button/按钮](Components/basic/button)
+  - [Collapse/伸缩框](Components/basic/collapse)
 
 - Log/更新记录
   - [log/更新记录](Log/log)
+  - [plan/开发计划](Log/plan)

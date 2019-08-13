@@ -4,6 +4,8 @@ a vuejs mobile-first ui framework
 
 一个vuejs移动端优先的UI库。
 
+主张克制的可配置。
+
 ## QuickStart
 
 [Github](https://github.com/Alfxjx/vuedash)
