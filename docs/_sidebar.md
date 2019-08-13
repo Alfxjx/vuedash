@@ -7,6 +7,7 @@
 - Components/组件
   - [Button/按钮](Components/basic/button)
   - [Collapse/伸缩框](Components/basic/collapse)
+  - [Popup/边缘弹层](Components/basic/popup)
 
 - Log/更新记录
   - [log/更新记录](Log/log)
