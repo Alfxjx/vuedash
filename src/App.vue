@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <router-link to="/buttons">buttons</router-link> 
-    <router-link to="/collapse">collapse</router-link> 
+    <router-link to="/buttons">buttons</router-link>
+    <router-link to="/collapse">collapse</router-link>
+    <router-link to="/popup">popup</router-link>
     <router-view />
   </div>
 </template>
@@ -15,8 +16,8 @@ export default {
 </script>
 
 <style lang="less">
-#app{
-  > *{
+#app {
+  > * {
     margin-right: 5px;
   }
 }
