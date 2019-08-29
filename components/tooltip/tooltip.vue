@@ -1,5 +1,5 @@
 <template>
-  <div class="tip-wrap" v-tipClickOut="hideTooltip" @click="getClickPosition" id="tip">
+  <div class="tip-wrap" v-tipClickOut="hideTooltip" @click="getClickPosition" id="tipWrap">
     <div class="tip-ref">
       <slot></slot>
     </div>
@@ -35,8 +35,9 @@
 </template>
 
 <script lang="js">
-import clickOut from "../../directives/clickOut";
-Vue.directive("clickOut", clickOut);
+import clickOut from "../directives/TipClickOut";
+import Vue from 'vue';
+Vue.directive("tipClickOut", clickOut);
 export default{
   name:'dash-tooltip',
   props:{
@@ -46,6 +47,9 @@ export default{
     context:{
       type: String,
       default:''
+    },
+    reverse:{
+      type: Boolean
     }
   },
   data(){
@@ -100,8 +104,13 @@ export default{
       }
     },
     ctxPosTop() {
+      // 声明翻转
+      if (this.reverse) {
+        return -1 * (this.tipsContentHeight - 8) + `px`;
+      }
+      // 计算出翻转
       if (this.isTooLow) {
-        return `-${this.slotHeight + 28}px`;
+        return -1 * (this.tipsContentHeight - 8) + `px`;
       } else {
         return "28px";
       }
@@ -109,42 +118,56 @@ export default{
   },
   methods: {
     getClickPosition(e) {
-      // console.log(this.ctxPosTop);
-      // console.log(e);
-      this.toTop = e.pageY;
-      // console.log(this.toTop);
-      this.toLeft = e.pageX;
-      let middleLine = this.screenWidth / 2;
-      // console.log(this.screenWidth / 2 - this.toLeft);
-      if (this.toLeft < middleLine) {
-        this.isLeft = true;
-        this.leftTriangle2border = "15px";
-        this.rightTriangle2border = "22.5px";
-      } else {
-        this.isLeft = false;
-        this.rightTriangle2border = "15px";
-        this.leftTriangle2border = "22.5px";
-      }
-      this.$nextTick(() => {
-        setTimeout(() => {
-          let el = document.getElementById("tip");
-          if (el) {
-            this.tipHeight = el.offsetTop;
-            // console.log(this.tipHeight);
-            // console.log(this.screenHeight);
+    // console.log(this.ctxPosTop);
+    console.log(e);
+    this.toTop = e.pageY;
+    console.log("toTop" + this.toTop);
+    this.toLeft = e.pageX;
+    let middleLine = this.screenWidth / 2;
+    if (this.toLeft < middleLine) {
+      this.isLeft = true;
+      this.leftTriangle2border = "15px";
+      this.rightTriangle2border = "22.5px";
+    } else {
+      this.isLeft = false;
+      this.rightTriangle2border = "15px";
+      this.leftTriangle2border = "22.5px";
+    }
+    this.$nextTick(() => {
+      setTimeout(() => {
+        let el = document.getElementById("tipClick");
+        let tipWrap = document.getElementById("tipWrap");
+        if (el && tipWrap) {
+          // slot 距离顶部的距离
+          this.tipHeight = tipWrap.offsetTop;
+          console.log("tipsHeight" + this.tipHeight);
+          console.log("screenHeight" + this.screenHeight);
+          this.slotHeight = el.clientHeight;
+          // 如果太低 下方剩下的高度<本身加上40
+          console.log("自己加40" + (this.tipsContentHeight + 40));
 
-            this.slotHeight = el.clientHeight;
-            // 如果太低 下方剩下的高度<本身加上40
-            // console.log(this.tipsContentHeight + 40);
-            // console.log(this.screenHeight - this.tipHeight - this.slotHeight);
+          console.log("tipsHeight" + this.tipHeight);
+          console.log("screenHeight" + this.screenHeight);
+          console.log("slotHeight" + this.slotHeight);
+          console.log(
+            "下方剩下的高度" +
+              (this.screenHeight - this.tipHeight - this.slotHeight)
+          );
+          // 手动翻转，直接翻转
+          console.log(this.reverse);
+          if (this.reverse) {
+            this.isTooLow = true;
+          } else {
+            // 否则 计算一下是不是需要翻转。
             this.screenHeight - this.tipHeight - this.slotHeight <
             this.tipsContentHeight + 40
               ? (this.isTooLow = true)
               : (this.isTooLow = false);
           }
-        });
+        }
       });
-    },
+    });
+  },
     hideTooltip(el){
       this.$emit("update:show", false);
     }
@@ -153,6 +176,8 @@ export default{
 </script>
 
 <style lang="less" scoped>
+@import "../../common/var.less";
+// @import "../../common/common.less";
 .tip-wrap {
   display: flex;
   flex-direction: column;
@@ -169,7 +194,7 @@ export default{
       font-size: 12px;
       line-height: 14px;
       color: white;
-      background-color: #24a0ff;
+      background-color: @theme-color;
       padding: 14px 12px 14px 15px;
       margin: 0 5px;
       border-radius: 4px;
@@ -189,7 +214,7 @@ export default{
       border-bottom: 4px solid;
       border-left: 3.75px solid;
       border-right: 3.75px solid;
-      border-color: transparent #24a0ff #24a0ff transparent;
+      border-color: transparent @theme-color @theme-color transparent;
     }
     .tip-content-triangle-right {
       content: "";
@@ -202,7 +227,7 @@ export default{
       border-bottom: 4px solid;
       border-left: 3.75px solid;
       border-right: 3.75px solid;
-      border-color: transparent transparent #24a0ff #24a0ff;
+      border-color: transparent transparent @theme-color @theme-color;
     }
   }
 }

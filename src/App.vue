@@ -3,6 +3,7 @@
     <router-link to="/buttons">buttons</router-link>
     <router-link to="/collapse">collapse</router-link>
     <router-link to="/popup">popup</router-link>
+    <router-link to="/tooltip">tooltip</router-link>
     <router-view />
   </div>
 </template>
