@@ -4,6 +4,7 @@ import exampleButton from "./pages/exampleButton.vue";
 import exampleCollapse from './pages/exampleCollapse.vue'
 import examplePopup from "./pages/examplePopup.vue";
 import exampleTooltip from "./pages/exampleTooltip.vue";
+import exampleFilters from "./pages/exampleFilters.vue";
 
 Vue.use(Router);
 
@@ -24,6 +25,10 @@ export default new Router({
     {
       path: "/tooltip",
       component: exampleTooltip
+    },
+    {
+      path: "/filters",
+      component: exampleFilters
     }
   ]
 });

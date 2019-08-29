@@ -6,6 +6,8 @@ import Popup from "./popup/popup.vue";
 import Tooltip from "./tooltip/tooltip.vue";
 // import TipClickOut from './directives/TipClickOut';
 
+import { dashFilters } from "./filters/index";
+
 const Vuedash = [Button, Collapse, collapseItem, Popup, Tooltip];
 
 // Object.keys(Vuedash).forEach(name => {
@@ -17,5 +19,7 @@ Vuedash.forEach(component => {
 });
 
 // export { Button };
+
+export { dashFilters, Vuedash };
 
 export default Vuedash;
