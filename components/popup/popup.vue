@@ -84,7 +84,8 @@ export default {
     top: 0;
     bottom: 0;
     // position: fixed;
-    transition: z-index 200ms linear;
+    // TODO
+    transition: opacity 200ms linear;
     &.show {
       z-index: 9;
     }
@@ -95,10 +96,10 @@ export default {
   }
 }
 .slide-in-t2b {
-  animation: slide-in-t2b 0.2s;
+  animation: slide-in-t2b 0.4s;
 }
 .slide-in-t2b-reverse {
-  animation: slide-in-t2b 0.2s reverse;
+  animation: slide-in-t2b 0.4s reverse;
 }
 @keyframes slide-in-t2b {
   0% {
@@ -119,10 +120,10 @@ export default {
 }
 
 .slide-in-b2t {
-  animation: slide-in-b2t 0.2s;
+  animation: slide-in-b2t 0.4s;
 }
 .slide-in-b2t-reverse {
-  animation: slide-in-b2t 0.2s reverse;
+  animation: slide-in-b2t 0.4s reverse;
 }
 @keyframes slide-in-b2t {
   0% {
@@ -142,10 +143,10 @@ export default {
   }
 }
 .slide-in-l2r {
-  animation: slide-in-l2r 0.2s;
+  animation: slide-in-l2r 0.4s;
 }
 .slide-in-l2r-reverse {
-  animation: slide-in-l2r 0.2s reverse;
+  animation: slide-in-l2r 0.4s reverse;
 }
 @keyframes slide-in-l2r {
   0% {
@@ -166,10 +167,10 @@ export default {
 }
 
 .slide-in-r2l {
-  animation: slide-in-r2l 0.2s;
+  animation: slide-in-r2l 0.4s;
 }
 .slide-in-r2l-reverse {
-  animation: slide-in-r2l 0.2s reverse;
+  animation: slide-in-r2l 0.4s reverse;
 }
 @keyframes slide-in-r2l {
   0% {
