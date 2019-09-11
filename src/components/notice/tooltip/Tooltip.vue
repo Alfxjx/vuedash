@@ -175,6 +175,7 @@ export default class Tooltip extends Vue {
 </script>
 
 <style scoped lang="scss">
+@import "../../../common/style/var.scss";
 .tip-wrap {
   display: flex;
   flex-direction: column;
@@ -191,7 +192,7 @@ export default class Tooltip extends Vue {
       font-size: 12px;
       line-height: 14px;
       color: white;
-      background-color: #24a0ff;
+      background-color: $tooltip-theme-bg;
       padding: 14px 12px 14px 15px;
       margin: 0 5px;
       border-radius: 4px;
@@ -211,7 +212,7 @@ export default class Tooltip extends Vue {
       border-bottom: 4px solid;
       border-left: 3.75px solid;
       border-right: 3.75px solid;
-      border-color: transparent #24a0ff #24a0ff transparent;
+      border-color: transparent $tooltip-theme-bg $tooltip-theme-bg transparent;
     }
     .tip-content-triangle-right {
       content: "";
@@ -224,7 +225,7 @@ export default class Tooltip extends Vue {
       border-bottom: 4px solid;
       border-left: 3.75px solid;
       border-right: 3.75px solid;
-      border-color: transparent transparent #24a0ff #24a0ff;
+      border-color: transparent transparent $tooltip-theme-bg $tooltip-theme-bg;
     }
   }
 }
