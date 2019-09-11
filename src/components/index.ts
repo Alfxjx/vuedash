@@ -4,12 +4,12 @@ import DashButton from "./basic/button/index";
 // import Collapse from "./collapse/collapse.vue";
 // import collapseItem from "./collapse/collapse-item.vue";
 // import Popup from "./popup/popup.vue";
-// import Tooltip from "./tooltip/tooltip.vue";
+import Tooltip from "./notice/tooltip/index";
 // // import TipClickOut from './directives/TipClickOut';
 
 // import { dashFilters } from "./filters/index";
 
-const Vuedash = [DashButton];
+const Vuedash = [DashButton, Tooltip];
 
 // // Object.keys(Vuedash).forEach(name => {
 // //   Vue.component(name, Vuedash[name])
@@ -25,7 +25,7 @@ const install = function(Vue: any, opts: any) {
   });
 };
 
-export default { install, DashButton };
+export default { install, DashButton, Tooltip };
 
 // export { dashFilters, Vuedash };
 
