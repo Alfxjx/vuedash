@@ -25,7 +25,7 @@ const install = function(Vue: any, opts: any) {
   });
 };
 
-export default{ install, DashButton };
+export default { install, DashButton };
 
 // export { dashFilters, Vuedash };
 

@@ -42,7 +42,7 @@ export default class DashButton extends Vue {
   @Emit("change") btnClick() {}
 
   // 鼠标按下
-  isMouseDown:boolean = false;
+  isMouseDown: boolean = false;
 
   mounted() {
     // plain 圆角 覆盖一下伪类
@@ -64,7 +64,9 @@ export default class DashButton extends Vue {
       case "playground":
         let dom = <HTMLElement>document.querySelector("#btnWrapper");
         let radius!: number;
-        if (dom !== null) {radius = dom.offsetHeight;}
+        if (dom !== null) {
+          radius = dom.offsetHeight;
+        }
         CSS = document.createTextNode(
           `#btnWrapper::after{border-radius:${radius}px;}`
         );
@@ -126,7 +128,7 @@ export default class DashButton extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import '../../../common/style/var.scss';
+@import "../../../common/style/var.scss";
 .dash-button {
   display: flex;
   justify-content: center;
@@ -153,21 +155,21 @@ export default class DashButton extends Vue {
     // border: 1px solid #3f69f2;
     position: relative;
     // @include onepx($btn-theme-color, all, 4px) // 一像素边框
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        border: 1px solid $btn-theme-color;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        width: 200%;
-        height: 200%;
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
-        -webkit-transform-origin: left top;
-        transform-origin: left top;
-      };
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 1px solid $btn-theme-color;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 200%;
+      height: 200%;
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+      -webkit-transform-origin: left top;
+      transform-origin: left top;
+    }
   }
   &.btn-type-text {
     background: transparent;
