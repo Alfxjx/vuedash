@@ -1,15 +1,16 @@
-// TODO: 需要把这个文件迁移一下，可以解决main.ts报错
+// 需要把这个文件迁移一下，可以解决main.ts报错
 import Vue from "vue";
 import DashButton from "./basic/button/index";
 // import Collapse from "./collapse/collapse.vue";
 // import collapseItem from "./collapse/collapse-item.vue";
 // import Popup from "./popup/popup.vue";
 import Tooltip from "./notice/tooltip/index";
-// // import TipClickOut from './directives/TipClickOut';
+import ClickOut from '../directives/clickOut';
 
 // import { dashFilters } from "./filters/index";
 
-const Vuedash = [DashButton, Tooltip];
+// FIXME: 自定义指令
+const Vuedash = [DashButton, Tooltip, ClickOut];
 
 // // Object.keys(Vuedash).forEach(name => {
 // //   Vue.component(name, Vuedash[name])
@@ -25,8 +26,8 @@ const install = function(Vue: any, opts: any) {
   });
 };
 
-export default { install, DashButton, Tooltip };
+export { install, DashButton, Tooltip };
 
 // export { dashFilters, Vuedash };
 
-// export default Vuedash;
+export default Vuedash;
